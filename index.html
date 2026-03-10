@@ -1,31 +1,34 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ocean Friends</title>
+    <title>Ocean Friends - 오늘의 바다 친구 찾기</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Ocean Friends</h1>
-        <p>Your friendly guide to ocean-themed emoticons</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1>오늘의 바다 친구 찾기</h1>
+            <p>오늘 당신과 어울리는 바다 친구를 만나보세요!</p>
+        </header>
 
-    <main>
-        <section class="emoticon-grid">
-            <!-- Emoticons will be added here -->
+        <main id="result-area">
+            <div id="emoji-display">❓</div>
+            <div id="description-display">아래 버튼을 눌러보세요!</div>
+        </main>
+
+        <section class="action-area">
+            <button id="draw-btn">바다 친구 추첨</button>
         </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2024 Ocean Friends. All rights reserved.</p>
-    </footer>
-
+        <footer>
+            <p>&copy; 2026 Ocean Friends. Stay Cool!</p>
+        </footer>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>

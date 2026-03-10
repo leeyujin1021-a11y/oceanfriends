@@ -1,24 +1,53 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-    const emoticons = [
-        '\ud83d\udc1f', '\ud83d\udc20', '\ud83d\udc21', '\ud83e\udd88', '\ud83d\udc0b', '\ud83d\udc33', 
-        '\ud83d\udc2c', '\ud83e\udd90', '\ud83e\udd91', '\ud83d\udc19', '\ud83e\udd80', '\ud83c\udf0a',
-        '\ud83c\udfdd', '\ud83d\udef3', '\u26f5', '\ud83c\udfa3', '\ud83c\udf9f', '\ud83d\udea2'
+    const oceanFriends = [
+        { emoji: '🐬', name: '영리한 돌고래', desc: '영리한 돌고래를 만났어요!' },
+        { emoji: '🐢', name: '느긋한 거북이', desc: '느긋한 거북이와 산책해봐요!' },
+        { emoji: '🐙', name: '호기심 많은 문어', desc: '호기심 많은 문어가 반겨주네요!' },
+        { emoji: '🦀', name: '부지런한 게', desc: '부지런한 게가 모래성을 쌓고 있어요!' },
+        { emoji: '🐳', name: '거대한 고래', desc: '거대한 고래의 든든한 호위를 받으세요!' }
     ];
 
-    const emoticonGrid = document.querySelector('.emoticon-grid');
+    const drawBtn = document.getElementById('draw-btn');
+    const emojiDisplay = document.getElementById('emoji-display');
+    const descriptionDisplay = document.getElementById('description-display');
 
-    emoticons.forEach(emoticon => {
-        const card = document.createElement('div');
-        card.classList.add('emoticon-card');
-        card.textContent = emoticon;
-        card.addEventListener('click', () => {
-            navigator.clipboard.writeText(emoticon).then(() => {
-                alert(`Copied ${emoticon} to clipboard!`);
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-            });
-        });
-        emoticonGrid.appendChild(card);
+    let isDrawing = false;
+
+    drawBtn.addEventListener('click', () => {
+        if (isDrawing) return;
+        
+        isDrawing = true;
+        drawBtn.disabled = true;
+        descriptionDisplay.textContent = '찾는 중...';
+        emojiDisplay.classList.add('shuffle');
+
+        let counter = 0;
+        const shuffleInterval = setInterval(() => {
+            const randomFriend = oceanFriends[Math.floor(Math.random() * oceanFriends.length)];
+            emojiDisplay.textContent = randomFriend.emoji;
+            counter++;
+
+            if (counter > 15) {
+                clearInterval(shuffleInterval);
+                finishDraw();
+            }
+        }, 100);
+
+        function finishDraw() {
+            const finalFriend = oceanFriends[Math.floor(Math.random() * oceanFriends.length)];
+            emojiDisplay.textContent = finalFriend.emoji;
+            descriptionDisplay.textContent = finalFriend.desc;
+            
+            emojiDisplay.classList.remove('shuffle');
+            
+            // 박진감 넘치는 마무리를 위한 살짝 커지는 효과
+            emojiDisplay.style.transform = 'scale(1.5)';
+            setTimeout(() => {
+                emojiDisplay.style.transform = 'scale(1)';
+            }, 300);
+
+            drawBtn.disabled = false;
+            isDrawing = false;
+        }
     });
 });
