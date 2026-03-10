@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const oceanFriends = [
-        { emoji: '🐬', name: '영리한 돌고래', desc: '영리한 돌고래를 만났어요!' },
-        { emoji: '🐢', name: '느긋한 거북이', desc: '느긋한 거북이와 산책해봐요!' },
-        { emoji: '🐙', name: '호기심 많은 문어', desc: '호기심 많은 문어가 반겨주네요!' },
-        { emoji: '🦀', name: '부지런한 게', desc: '부지런한 게가 모래성을 쌓고 있어요!' },
-        { emoji: '🐳', name: '거대한 고래', desc: '거대한 고래의 든든한 호위를 받으세요!' }
+        { emoji: '🐬', name: 'Smart Dolphin', desc: 'You met a smart dolphin!' },
+        { emoji: '🐢', name: 'Relaxed Turtle', desc: 'Take a stroll with a relaxed turtle!' },
+        { emoji: '🐙', name: 'Curious Octopus', desc: 'A curious octopus says hello!' },
+        { emoji: '🦀', name: 'Busy Crab', desc: 'A busy crab is building a sandcastle!' },
+        { emoji: '🐳', name: 'Giant Whale', desc: 'Get a reliable escort from a giant whale!' }
     ];
 
     const drawBtn = document.getElementById('draw-btn');
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         isDrawing = true;
         drawBtn.disabled = true;
-        descriptionDisplay.textContent = '찾는 중...';
+        descriptionDisplay.textContent = 'Searching...';
         emojiDisplay.classList.add('shuffle');
 
         let counter = 0;
