@@ -24,10 +24,14 @@ h1 {
 }
 
 #result-area {
-    background-color: #ffffff; /* 흰색 박스 영역 */
-    padding: 40px;
+    /* background-color: #ffffff;  <- 이 줄을 삭제하거나 주석 처리합니다 */
+    padding: 20px;
     margin-bottom: 20px;
     min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #emoji-display {
